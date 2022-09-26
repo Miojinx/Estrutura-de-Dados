@@ -1,36 +1,65 @@
 #include <stdio.h>>
 #include <stdlib.h>
 
-typedef struct ab{
+typedef struct ab
+{
     int info;
     struct ab *esq, *dir;
-}TAB;
-/*
-void imprime(TAB *nodo, int tab)
+} TAB;
+
+TAB *copia(TAB *a)
 {
-    if (nodo != NULL)
+
+    if (a != NULL)
     {
-        printf("%c\n", nodo->info);
-        imprime(nodo->esq, tab + 2);
-        printf("\n");
-        imprime(nodo->dir, tab + 2);
+        TAB *raizCopia = (TAB *)malloc(sizeof(TAB));
+        raizCopia->info = a->info;
+        raizCopia->esq = copia(a->esq);
+        raizCopia->dir = copia(a->dir);
+        return raizCopia;
     }
     else
-        printf("vazio"); 
+        return NULL;
 }
-*/
-TAB* copia(TAB* a){
-    TAB* raizCopia = (TAB*) malloc(sizeof(TAB));
-    raizCopia = a;
 
-     if (a != NULL)
+TAB *espelho(TAB *a)
+{
+
+    if (a != NULL)
     {
-
-        printf("%c\n", a->info);
-        copia(a->esq);
-        printf("\n");
-        copia(a->dir);
+        TAB *raizEspelho = (TAB *)malloc(sizeof(TAB));
+        raizEspelho->info = a->info;
+        raizEspelho->esq = espelho(a->dir);
+        raizEspelho->dir = espelho(a->esq);
+        return raizEspelho;
     }
-    else
-        printf("vazio"); 
+    return NULL;
+}
+
+int igual(TAB *a1, TAB *a2)
+{
+
+    if (a1 == NULL && a2 == NULL)
+    {
+        return 1;
+    }
+    else if (a1 != NULL && a2 != NULL)
+    {
+        if (a1->info == a2->info && a1->esq == a2->esq && a1->dir == a2->dir){
+            igual(a1->esq, a2->esq);
+            igual(a1->dir, a2->dir);
+            return 0;/* muito brabo fi */
+        }
+    }
+    exit(0);
+}
+
+int maior(TAB* a){
+    if(!a)
+        return INT_MIN;
+    
+    int aux = a->info;
+    int esq = maior(a->esq);
+    int dir = maior(a->dir);
+    return aux;/* fazer a comparação dos 3*/
 }
