@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "listaEncadeada.h"
+#include "C:\Users\erikt\OneDrive\Matérias UFF\Terceiro período\Estrutura de Dados\Revisão lista encadeada\listaEncadeada.h"
 // declaração
 
 typedef struct fila

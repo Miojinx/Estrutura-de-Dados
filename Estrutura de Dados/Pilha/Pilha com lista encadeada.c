@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "listaEncadeada.h"
+#include "C:\Users\erikt\OneDrive\Matérias UFF\Terceiro período\Estrutura de Dados\Revisão lista encadeada\listaEncadeada.h"// aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 typedef struct pilha
 {
     TLista *topo;
@@ -36,7 +36,8 @@ int pop(TPilha *pilha)
 int peek(TPilha *pilha)
 {
     int elem;
-    elem = pilha->topo->info return elem;
+    elem = pilha->topo->info;
+    return elem;
     return 0;
 }
 
